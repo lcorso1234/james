@@ -113,7 +113,7 @@ export default function Home() {
             <button
               type="button"
               onClick={saveContact}
-              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#ff1744] bg-gradient-to-r from-[#ff1744] via-[#ff5f6d] to-[#ffc371] px-6 py-3 text-base font-semibold text-[#1b1016] shadow-[0_20px_35px_rgba(255,23,68,0.35)] transition-transform duration-300 hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ff607d] focus-visible:ring-offset-[#202225] animate-jiggle"
+              className="animate-callout group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#ff1744] bg-gradient-to-r from-[#ff1744] via-[#ff5f6d] to-[#ffc371] px-6 py-3 text-base font-semibold text-[#1b1016] shadow-[0_20px_35px_rgba(255,23,68,0.35)] transition-transform duration-300 hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ff607d] focus-visible:ring-offset-[#202225]"
             >
               <span className="relative z-10">Save Builder Contact</span>
               <span
