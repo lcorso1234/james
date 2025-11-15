@@ -12,6 +12,7 @@ export default function Home() {
       "ORG:ARK Builds",
       "TITLE:Principal Builder - Design/Build",
       "TEL;TYPE=CELL,VOICE:17089328857",
+      "EMAIL;TYPE=INTERNET:corsojames1@gmail.com",
       "URL:https://ark.com",
       "NOTE:Powered by Tri-K Development {3 kids}",
       "END:VCARD",
@@ -84,6 +85,18 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-inner shadow-black/40">
+              <div className="text-sm uppercase tracking-[0.35em] text-white/50">
+                Email
+              </div>
+              <a
+                href="mailto:corsojames1@gmail.com"
+                className="mt-1 inline-flex items-center gap-2 text-lg font-semibold text-[#7de7ff] transition-colors hover:text-white"
+              >
+                corsojames1@gmail.com
+              </a>
+            </div>
+
             <div className="rounded-3xl border border-white/10 bg-[#16181c]/70 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
               <div className="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-white/45">
                 <span>Build Scope</span>
@@ -106,7 +119,7 @@ export default function Home() {
             <button
               type="button"
               onClick={saveContact}
-              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#ff1744] bg-gradient-to-r from-[#ff1744] to-[#ff5f6d] px-6 py-3 text-base font-semibold text-[#1b1016] shadow-[0_20px_35px_rgba(255,23,68,0.45)] transition-transform duration-300 hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ff1744] focus-visible:ring-offset-[#202225] animate-jiggle"
+              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#00f7ff] bg-gradient-to-r from-[#00f7ff] via-[#00b0ff] to-[#0072ff] px-6 py-3 text-base font-semibold text-[#03121f] shadow-[0_20px_35px_rgba(0,247,255,0.35)] transition-transform duration-300 hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#00d5ff] focus-visible:ring-offset-[#202225] animate-jiggle"
             >
               <span className="relative z-10">Save Builder Contact</span>
               <span
