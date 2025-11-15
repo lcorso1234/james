@@ -14,7 +14,7 @@ export default function Home() {
       "TEL;TYPE=CELL,VOICE:17089328857",
       "EMAIL;TYPE=INTERNET:corsojames1@gmail.com",
       "URL:https://tri-kdev.com",
-      "NOTE:Powered by Tri-K Development {3 kids}",
+      "NOTE:Let's make it happen",
       "END:VCARD",
     ].join("\n");
 
