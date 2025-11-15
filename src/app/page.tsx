@@ -9,11 +9,11 @@ export default function Home() {
       "VERSION:3.0",
       "FN:James Corso",
       "N:Corso;James;;;",
-      "ORG:ARK Builds",
+      "ORG:Tri-K Development",
       "TITLE:Principal Builder - Design/Build",
       "TEL;TYPE=CELL,VOICE:17089328857",
       "EMAIL;TYPE=INTERNET:corsojames1@gmail.com",
-      "URL:https://ark.com",
+      "URL:https://tri-kdev.com",
       "NOTE:Powered by Tri-K Development {3 kids}",
       "END:VCARD",
     ].join("\n");
@@ -55,17 +55,11 @@ export default function Home() {
             aria-hidden
           />
           <div className="relative space-y-6">
-            <div>
-              <p className="neon-text text-[0.65rem] uppercase tracking-[0.4em] text-[#ff1744]">
-                No Cash. Business Loan.
-              </p>
-            </div>
-
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.35em] text-white/70">
-                ARK
+                Tri-K
                 <span className="h-1 w-1 rounded-full bg-[#ff1744]" aria-hidden />
-                Builds
+                Development
               </div>
               <h1 className="text-4xl font-semibold leading-tight">
                 James{" "}
@@ -91,7 +85,7 @@ export default function Home() {
               </div>
               <a
                 href="mailto:corsojames1@gmail.com"
-                className="mt-1 inline-flex items-center gap-2 text-lg font-semibold text-[#7de7ff] transition-colors hover:text-white"
+                className="mt-1 inline-flex items-center gap-2 text-lg font-semibold text-[#ff4b5c] transition-colors hover:text-white"
               >
                 corsojames1@gmail.com
               </a>
@@ -119,7 +113,7 @@ export default function Home() {
             <button
               type="button"
               onClick={saveContact}
-              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#00f7ff] bg-gradient-to-r from-[#00f7ff] via-[#00b0ff] to-[#0072ff] px-6 py-3 text-base font-semibold text-[#03121f] shadow-[0_20px_35px_rgba(0,247,255,0.35)] transition-transform duration-300 hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#00d5ff] focus-visible:ring-offset-[#202225] animate-jiggle"
+              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#ff1744] bg-gradient-to-r from-[#ff1744] via-[#ff5f6d] to-[#ffc371] px-6 py-3 text-base font-semibold text-[#1b1016] shadow-[0_20px_35px_rgba(255,23,68,0.35)] transition-transform duration-300 hover:translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ff607d] focus-visible:ring-offset-[#202225] animate-jiggle"
             >
               <span className="relative z-10">Save Builder Contact</span>
               <span
@@ -132,7 +126,6 @@ export default function Home() {
             </button>
 
             <div className="space-y-1 pt-2 text-xs uppercase tracking-[0.3em] text-white/50">
-              <p>Powered by Tri-K Development {`{3 kids}`}</p>
               <p className="text-[0.6rem] normal-case text-white/60">
                 We build homes that pass inspection and wow investors—tap, save, mobilize capital.
               </p>
