@@ -53,11 +53,33 @@ export default function Home() {
     if (ctx) {
       ctx.fillStyle = "#050505";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.font = "bold 138px 'Arial'";
+
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+
       ctx.fillStyle = "#f5f5f5";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("JC", canvas.width / 2, canvas.height / 2 + 10);
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 110, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "#050505";
+      ctx.beginPath();
+      ctx.arc(centerX - 35, centerY - 25, 14, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.lineWidth = 10;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(centerX + 15, centerY - 20);
+      ctx.lineTo(centerX + 55, centerY - 10);
+      ctx.strokeStyle = "#050505";
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "#050505";
+      ctx.lineWidth = 12;
+      ctx.arc(centerX, centerY + 20, 55, 0, Math.PI);
+      ctx.stroke();
     }
 
     const photoData = canvas.toDataURL("image/png").split(",")[1] ?? "";
@@ -81,57 +103,23 @@ export default function Home() {
 
     downloadTextFile(contactCard, "james-corso-ark.vcf", "text/vcard");
 
-    const isMobileDevice =
-      typeof window !== "undefined" &&
-      /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+    if (typeof window !== "undefined") {
+      const ua = window.navigator.userAgent;
+      const isIOS = /iPhone|iPad|iPod/i.test(ua);
+      const isAndroid = /Android/i.test(ua);
+      const messageBody = encodeURIComponent(
+        "Hi James – let's connect with Tri-K Development about my build.",
+      );
+      const phoneNumber = "+17089328857";
+      const smsUrl = isIOS
+        ? `sms:${phoneNumber}&body=${messageBody}`
+        : `sms:${phoneNumber}?body=${messageBody}`;
 
-    const formatDate = (date: Date) =>
-      date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-
-    const now = new Date();
-    const startDate = new Date(now);
-    startDate.setDate(startDate.getDate() + 3);
-    startDate.setHours(15, 0, 0, 0);
-    const endDate = new Date(startDate.getTime() + 45 * 60 * 1000);
-
-    const uid =
-      typeof crypto !== "undefined" && "randomUUID" in crypto
-        ? crypto.randomUUID()
-        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-
-    const calendarInvite = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Tri-K Development//James Corso Builder//EN",
-      "CALSCALE:GREGORIAN",
-      "METHOD:PUBLISH",
-      "BEGIN:VEVENT",
-      `UID:${uid}`,
-      `DTSTAMP:${formatDate(now)}`,
-      `DTSTART:${formatDate(startDate)}`,
-      `DTEND:${formatDate(endDate)}`,
-      "SUMMARY:Discovery Call with James Corso",
-      "DESCRIPTION:Plan your next build with James Corso. Phone: 1.708.932.8857, Email: corsojames1@gmail.com",
-      "LOCATION:Phone or Video Conference",
-      "URL:https://tri-kdev.com",
-      "BEGIN:VALARM",
-      "ACTION:DISPLAY",
-      "DESCRIPTION:Reminder",
-      "TRIGGER:-PT30M",
-      "END:VALARM",
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n");
-
-    const triggerCalendarInvite = () =>
-      downloadTextFile(calendarInvite, "james-corso-consult.ics", "text/calendar", {
-        preferNavigation: isMobileDevice,
-      });
-
-    if (isMobileDevice) {
-      setTimeout(triggerCalendarInvite, 500);
-    } else {
-      triggerCalendarInvite();
+      if (isIOS || isAndroid) {
+        setTimeout(() => {
+          window.location.href = smsUrl;
+        }, 600);
+      }
     }
   }, []);
 
