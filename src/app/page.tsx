@@ -4,6 +4,26 @@ import { useCallback } from "react";
 
 export default function Home() {
   const saveContact = useCallback(() => {
+    const downloadTextFile = (content: string, fileName: string, mimeType: string) => {
+      const blob = new Blob([content], {
+        type: `${mimeType};charset=utf-8`,
+      });
+      const url = URL.createObjectURL(blob);
+
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = fileName;
+      anchor.rel = "noopener";
+      anchor.target = "_blank";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+      }, 1000);
+    };
+
     const canvas = document.createElement("canvas");
     canvas.width = 256;
     canvas.height = 256;
@@ -39,22 +59,48 @@ export default function Home() {
       .filter((line): line is string => Boolean(line))
       .join("\n");
 
-    const blob = new Blob([contactCard], {
-      type: "text/vcard;charset=utf-8",
-    });
-    const url = URL.createObjectURL(blob);
+    downloadTextFile(contactCard, "james-corso-ark.vcf", "text/vcard");
 
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "james-corso-ark.vcf";
-    anchor.rel = "noopener";
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
+    const isMobileDevice =
+      typeof window !== "undefined" &&
+      /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
 
-    setTimeout(() => {
-      URL.revokeObjectURL(url);
-    }, 1000);
+    if (isMobileDevice) {
+      const formatDate = (date: Date) =>
+        date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+      const now = new Date();
+      const startDate = new Date(now);
+      startDate.setDate(startDate.getDate() + 3);
+      startDate.setHours(15, 0, 0, 0);
+      const endDate = new Date(startDate.getTime() + 45 * 60 * 1000);
+
+      const uid =
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
+      const calendarInvite = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Tri-K Development//James Corso Builder//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        `UID:${uid}`,
+        `DTSTAMP:${formatDate(now)}`,
+        `DTSTART:${formatDate(startDate)}`,
+        `DTEND:${formatDate(endDate)}`,
+        "SUMMARY:Discovery Call with James Corso",
+        "DESCRIPTION:Plan your next build with James Corso. Phone: 1.708.932.8857, Email: corsojames1@gmail.com",
+        "LOCATION:Phone or Video Conference",
+        "URL:https://tri-kdev.com",
+        "END:VEVENT",
+        "END:VCALENDAR",
+      ].join("\r\n");
+
+      downloadTextFile(calendarInvite, "james-corso-consult.ics", "text/calendar");
+    }
   }, []);
 
   return (
