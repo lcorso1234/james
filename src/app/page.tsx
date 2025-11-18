@@ -144,7 +144,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 rounded-[36px] border border-white/5 opacity-60 blur-2xl" />
 
-        <div className="relative overflow-hidden rounded-[36px] border border-white/15 bg-gradient-to-b from-[#0c1e10] via-[#061209] to-[#030803] p-7 shadow-[0_25px_70px_rgba(0,0,0,0.85)]">
+        <div className="relative overflow-hidden rounded-[36px] border border-white/15 bg-gradient-to-b from-[#4a545b] via-[#2f373c] to-[#1c2124] p-7 shadow-[0_25px_70px_rgba(0,0,0,0.85)]">
           <div
             className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#39ff14]/30 blur-[60px]"
             aria-hidden
@@ -154,43 +154,13 @@ export default function Home() {
             aria-hidden
           />
           <div className="relative space-y-6">
-            <div className="space-y-1">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.35em] text-white/70">
-                Tri-K
-                <span className="h-1 w-1 rounded-full bg-[#39ff14]" aria-hidden />
-                Development
-              </div>
-              <h1 className="text-4xl font-semibold leading-tight">
-                James{" "}
-                <span className="text-white/70">
-                  Corso
-                </span>
-              </h1>
-              <p className="text-base text-white/80">Principal Builder · Design/Build</p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.35em] text-white/70">
+              Tri-K
+              <span className="h-1 w-1 rounded-full bg-[#39ff14]" aria-hidden />
+              Development
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-inner shadow-black/40">
-              <div className="text-sm uppercase tracking-[0.35em] text-white/50">
-                Builder Line
-              </div>
-              <div className="mt-1 text-2xl font-bold text-[#39ff14]">
-                1.708.932.8857
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-inner shadow-black/40">
-              <div className="text-sm uppercase tracking-[0.35em] text-white/50">
-                Email
-              </div>
-              <a
-                href="mailto:corsojames1@gmail.com"
-                className="mt-1 inline-flex items-center gap-2 text-lg font-semibold text-[#72ff72] transition-colors hover:text-white"
-              >
-                corsojames1@gmail.com
-              </a>
-            </div>
-
-            <div className="rounded-3xl border border-white/10 bg-[#0a160c]/70 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <div className="rounded-3xl border border-white/10 bg-[#2a3439]/80 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
               <div className="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-white/45">
                 <span>Build Scope</span>
                 <span>In-house</span>
@@ -226,7 +196,7 @@ export default function Home() {
 
             <div className="space-y-1 pt-2 text-center text-xs uppercase tracking-[0.3em] text-white/50">
               <p className="text-[0.6rem] text-white/70">
-                Built in America, on Earth
+                Relationships built to last, the American Way.
               </p>
             </div>
           </div>
