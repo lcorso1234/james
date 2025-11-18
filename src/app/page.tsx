@@ -95,7 +95,7 @@ export default function Home() {
       "EMAIL;TYPE=INTERNET:corsojames1@gmail.com",
       "URL:https://tri-kdev.com",
       photoData ? `PHOTO;ENCODING=b;TYPE=PNG:${photoData}` : null,
-      "NOTE:Let's make it happen",
+      "NOTE:Let's Make it Happen",
       "END:VCARD",
     ]
       .filter((line): line is string => Boolean(line))
